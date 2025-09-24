@@ -27,8 +27,6 @@ export class ListRolesComponent {
   listRoles(page = 1){
     this.rolesService.listRoles(page,this.search).subscribe((resp:any)=>{
       console.log(resp);
-      console.log('Respuesta completa:', resp);
-    console.log('Primer rol:', resp.roles[0]);
       this.ROLES = resp.roles;
       this.totalPages = resp.total;
       this.currentPage = page;

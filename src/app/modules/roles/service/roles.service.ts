@@ -37,7 +37,6 @@ export class RolesService {
         finalize(() => this.isLoadingSubject.next(false))
       );
     }
-
     updateRole(ID_ROLE:string, data:any){
       this.isLoadingSubject.next(true);
       let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authservice.token});
