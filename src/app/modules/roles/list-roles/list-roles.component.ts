@@ -36,5 +36,8 @@ export class ListRolesComponent {
 
   createRol(){
     const modalRef = this.modalService.open(CreateRolesComponent, {centered:true, size:'md'});
+    modalRef.componentInstance.RoleC.subscribe((role:any)=>{
+      this.ROLES.unshift(role);
+    })
   }
 }
