@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SIDEBAR } from 'src/app/config/config';
 import { RolesService } from '../service/roles.service';
@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./create-roles.component.scss']
 })
 export class CreateRolesComponent {
+  @Output() RoleC: EventEmitter<any> = new EventEmitter();
   name: String = '';
   SIDEBAR: any = SIDEBAR;
   isLoading : any;
@@ -47,6 +48,13 @@ export class CreateRolesComponent {
     }
     this.roleService.registerRole(data).subscribe((resp:any)=> {
         console.log(resp)
+        if(resp.message == 403){
+          this.toast.error('Validacion',resp.message_text);
+        }else{
+          this.toast.success("Éxito","El rol se registró correctamente");
+          this.RoleC.emit(resp.role);
+          this.modal.close(); 
+        }
     })
 
   }
