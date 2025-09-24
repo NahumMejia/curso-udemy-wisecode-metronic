@@ -10,3 +10,25 @@
 @import "./assets/plugins/keenicons/duotone/style.css";
 @import "./assets/plugins/keenicons/outline/style.css";
 @import "./assets/plugins/keenicons/solid/style.css";
+
+
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+// bootstrap style toast
+// or import a bootstrap 4 alert styled design (SASS ONLY)
+// should be after your bootstrap imports, it uses bs4 variables, mixins, functions
+@import 'ngx-toastr/toastr-bs5-alert';
+
+.toast-success {
+    background-color: #7fe57f !important;
+}
+.toast-error {
+    background-color: #e27c9a !important;
+}
+.toast-info {
+    background-color: #81c6ee !important;
+}
+.toast-warning {
+    background-color: #e9b771 !important;
+}
