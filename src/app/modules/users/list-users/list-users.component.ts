@@ -16,6 +16,7 @@ export class ListUsersComponent {
     USERS: any = [];
     isLoading$:any;
 
+    roles:any = [];
     totalPages:number = 0;
     currentPage:number = 0;
     constructor(
@@ -26,6 +27,7 @@ export class ListUsersComponent {
     ngOnInit():void {
       this.isLoading$ = this.usersService.isLoading$;
       this.listUsers();
+      this.configAll();
     }
   
     listUsers(page = 1){
@@ -36,12 +38,19 @@ export class ListUsersComponent {
         this.currentPage = page;
       })
     }
+    configAll(){
+      this.usersService.configAll().subscribe((resp:any)=>{
+        console.log(resp);
+        this.roles = resp.roles;
+      })
+    }
     loadPage($event:any){
       this.listUsers($event);
     }
-  
+
     createUser(){
       const modalRef = this.modalService.open(CreateUserComponent, {centered:true, size:'md'});
+      modalRef.componentInstance.roles = this.roles;
       modalRef.componentInstance.UserC.subscribe((role:any)=>{
         this.USERS.unshift(role);
       })

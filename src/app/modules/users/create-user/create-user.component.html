@@ -57,8 +57,11 @@
                             name="role_selected"
                             placeholder="Selec. Rol"
                             [(ngModel)]="role_id"
-                        >
-                        <option value="">Todos</option> 
+                 >
+                            <option value="">Selec. Rol</option>
+                            <option *ngFor="let rol of roles" [value]="rol.id">
+                                {{rol.name}}
+                            </option>
                         </select>    
                     </div>
                 </div>
@@ -81,9 +84,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <label class="required fw-bold fs-6 mb-2">Telefono: </label>
-                        <input type="number" name="phone" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="1234567890" [(ngModel)]="phone" />
+                     <div class="col-6">
+                        <!--<label class="required fw-bold fs-6 mb-2">Telefono: </label>
+                        <input type="number" name="phone" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="1234567890" [(ngModel)]="phone" /> -->
                     </div>
                 </div>
 
@@ -118,7 +121,20 @@
                             <input type="file" class="custom-file-input" id="customFile" accept=".jpeg, .bmp, .png, .jpg, .gif, .webp" (change)="processFile($event)"/>
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
-                        <input type="number" [(ngModel)]="n_document" name="n_document" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="1234567890"/>
+                        <div *ngIf="imagen_previsualizer">
+                            <img [src]="imagen_previsualizer" style="height: 100px;" alt="" srcset="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fv-row row my-1">
+                    <div class="col-6">
+                        <label class="required fw-bold fs-6 mb-2">Contraseña: </label>
+                        <input type="password" name="password" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="********" [(ngModel)]="password" />
+                    </div>
+                    <div class="col-6">
+                        <label class="required fw-bold fs-6 mb-2">Confirmar contraseña: </label>
+                        <input type="password" name="password" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="*********" [(ngModel)]="password_repeat" />
                     </div>
                 </div>
 

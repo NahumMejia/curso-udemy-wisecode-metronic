@@ -9,6 +9,7 @@ import { URL_SERVICIOS } from 'src/app/config/config';
   providedIn: 'root'
 })
 export class UsersService {
+
   isLoading$: Observable<boolean>;
   isLoadingSubject: BehaviorSubject<boolean>;
 
@@ -23,7 +24,7 @@ export class UsersService {
   registerUser(data:any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
-    let URL = URL_SERVICIOS+"/user";
+    let URL = URL_SERVICIOS+"/users";
     return this.http.post(URL, data,{headers:headers}).pipe(
     finalize(() => this.isLoadingSubject.next(false))
     );
@@ -33,6 +34,15 @@ export class UsersService {
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
     let URL = URL_SERVICIOS+"/users?page="+page+"&search"+search;
+    return this.http.get(URL,{headers:headers}).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+  configAll(){
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
+    let URL = URL_SERVICIOS+"/users/config";
     return this.http.get(URL,{headers:headers}).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
