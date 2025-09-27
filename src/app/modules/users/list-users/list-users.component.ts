@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditUserComponent } from '../edit-user/edit-user.component';
-import { DeleteUserComponent } from '../delete-user/delete-user.component'; 
+import { DeleteUserComponent } from '../delete-user/delete-user.component';
 import { UsersService } from '../service/users.service';
 import { CreateUserComponent } from '../create-user/create-user.component';
 
@@ -59,7 +59,8 @@ export class ListUsersComponent {
     editUser(USER:any){
       const modalRef = this.modalService.open(EditUserComponent, {centered:true, size:'md'});
       modalRef.componentInstance.USER_SELECTED = USER;
-      modalRef.componentInstance.RoleE.subscribe((user:any)=>{
+      modalRef.componentInstance.roles = this.roles;
+      modalRef.componentInstance.UserE.subscribe((user:any)=>{
         let INDEX = this.USERS.findIndex((user:any) => user.id == USER.id);
         if(INDEX != -1){
           this.USERS[INDEX] = user;
@@ -70,7 +71,7 @@ export class ListUsersComponent {
     deleteUser(USER:any){
       const modalRef = this.modalService.open(DeleteUserComponent, {centered:true, size:'md'});
       modalRef.componentInstance.USER_SELECTED = USER;
-      modalRef.componentInstance.RoleD.subscribe((user:any)=>{
+      modalRef.componentInstance.UserD.subscribe((user:any)=>{
         let INDEX = this.USERS.findIndex((user:any) => user.id == USER.id);
         if(INDEX != -1){
           this.USERS.splice(INDEX,1);
