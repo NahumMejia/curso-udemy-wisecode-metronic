@@ -1,8 +1,7 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { SIDEBAR } from 'src/app/config/config';
-import { RolesService } from 'src/app/modules/roles/service/roles.service';
+import { SucursalService } from '../service/sucursal.service';
 
 @Component({
   selector: 'app-create-sucursal',
@@ -12,58 +11,49 @@ import { RolesService } from 'src/app/modules/roles/service/roles.service';
 export class CreateSucursalComponent {
 
 
-  @Output() RoleC: EventEmitter<any> = new EventEmitter();
+    @Output() SucursalC: EventEmitter<any> = new EventEmitter();
     name: String = '';
-    SIDEBAR: any = SIDEBAR;
+    address: string = '';
     isLoading : any;
-    permisions : any = [];
+
   
-    constructor(public modal:NgbActiveModal, public roleService: RolesService, public toast: ToastrService,){
+    constructor(
+      public modal:NgbActiveModal, 
+      public sucursalService: SucursalService, 
+      public toast: ToastrService,
+    
+    ){
        
     }
+    // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
     ngOnInit():void {
   
-    }
-    addPermission(permiso:string){
-      let INDEX = this.permisions.findIndex((perm:string)=> perm == permiso);
-      if (INDEX != -1){
-        this.permisions.splice(INDEX,1);
-      }else{
-        this.permisions.push(permiso);
-      }
-      console.log(this.permisions);
+ 
     }
   
-  
-    store(){
+      store(){
       if(!this.name){
-      this.toast.error("Validacion", "El nombre es requerido");
+      this.toast.error("Validacion", "El nombre de la Sucursal es requerido");
         return false;
     }
-    if(this.permisions.length == 0){
-      this.toast.error("Validacion", "Necesitas seleccionar un permiso");
-      return false;
-    }
+   
       let data = {
         name: this.name,
-        permisions: this.permisions,
+        addres: this.address,
+       
       }
-      this.roleService.registerRole(data).subscribe((resp:any)=> {
+      this.sucursalService.registerSucursal(data).subscribe((resp:any)=> {
           console.log(resp)
           if(resp.message == 403){
             this.toast.error('Validacion',resp.message_text);
           }else{
-            this.toast.success("Éxito","El rol se registró correctamente");
-            this.RoleC.emit(resp.role);
+            this.toast.success("Éxito","La sucursal  se registró correctamente");
+            this.SucursalC.emit(resp.sucursal);
             this.modal.close(); 
           }
       })
   
     }
   }
-  
 
-function Output(): (target: CreateSucursalComponent, propertyKey: "RoleC") => void {
-  throw new Error('Function not implemented.');
-}
 
