@@ -39,6 +39,10 @@ const Routing: Routes = [
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
   {
+    path: 'configuraciones',
+    loadChildren: () => import('../modules/configuration/configuration.module').then((m) => m.ConfigurationModule),
+  },
+  {
     path: 'apps/roles',
     loadChildren: () => import('./role/role.module').then((m) => m.RoleModule),
   },
