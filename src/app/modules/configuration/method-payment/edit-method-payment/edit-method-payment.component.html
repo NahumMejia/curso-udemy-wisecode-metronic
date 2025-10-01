@@ -1,10 +1,9 @@
-
 <!--begin::Modal content CREATE-->
 <div class="modal-content">
     <!--begin::Modal header-->
     <div class="modal-header" id="kt_modal_add_user_header">
         <!--begin::Modal title-->
-        <h2 class="fw-bolder">Edit Sucursal: {{ SUCURSAL_SELECTED.name }}</h2>
+        <h2 class="fw-bolder">Add Method Payment</h2>
         
         <!--end::Modal title-->
         <!--begin::Close-->
@@ -30,7 +29,7 @@
                 <!--begin::Input group-->
                 <div class="fv-row mb-7">
                     <!--begin::Label-->
-                    <label class="required fw-bold fs-6 mb-2">Nombre de la sucursal: (*) </label>
+                    <label class="required fw-bold fs-6 mb-2">Nombre del metodo de pago: (*) </label>
                     <!--end::Label-->
                     <!--begin::Input-->
                     <input type="text" name="name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Sucursal" [(ngModel)]="name" />
@@ -39,14 +38,22 @@
 
                 <div class="fv-row mb-7">
                     <!--begin::Label-->
-                    <label class="required fw-bold fs-6 mb-2">Dirección:(Opcional) </label>
-                    <textarea class="form-control form-control-solid" rows="3" 
-                    name="address" [(ngModel)]="address"
-                     placeholder="Dirección  de la sucursal"></textarea>
+                    <label class="required fw-bold fs-6 mb-2">Metodo de pago:(Opcional) </label>
+                    <select
+                        class="form-control form-select-solid fw-bolder"
+                        name="method_payment_id"
+                        placeholder="Selec. Metodo"
+                        [(ngModel)]="method_payment_id"
+                    >
+                        <option value="">Ninguno</option>
+                        <ng-container *ngFor="let METHOD_PAYMENT of METHOD_PAYMENTS">
+                            <option [value]="METHOD_PAYMENT.id">{{ METHOD_PAYMENT.name }}</option>
+                        </ng-container>
+                        
+                    </select>
                 </div>  
 
                 <div class="fv-row mb-7">
-                    <!--begin::Label-->
                     <label class="required fw-bold fs-6 mb-2">State:(Opcional) </label>
                     <select
                         class="form-control form-select-solid fw-bolder"
@@ -77,10 +84,5 @@
         <!--end::Form-->
     </div>
     <!--end::Modal body-->
-</div><!--end::Modal content CREATE-->
-
-
+</div>
 <!--end::Modal content CREATE-->
-<!--end::Modal content CREATE-->
-<p>edit-sucursal works!</p>
-

@@ -19,6 +19,7 @@ const routes: Routes = [
     path: 'lugar-de-entrega',
     loadChildren: () => import('./sucursal-deliveries/sucursal-deliveries.module').then((m) => m.SucursalDeliveriesModule),
   },
+
 ];
   /*
 
@@ -28,10 +29,17 @@ const routes: Routes = [
     loadChildren: () => import('./sucursal-deliveries/sucursal-deliveries.module').then((m) => m.SucursalDeliveriesModule),
   },
 
+
   {
     path: 'metodo-de-pagos',
     loadChildren: () => import('./method-payment/method-payment.module').then((m) => m.MethodPaymentModule),
   },
+
+
+  ];
+
+  /*
+
   {
     path: 'segmento-de-cliente',
     loadChildren: () => import('./client-segment/client-segment.module').then((m) => m.ClientSegmentModule),

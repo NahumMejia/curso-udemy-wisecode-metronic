@@ -20,7 +20,6 @@ export class SucursalService {
     this.isLoading$ = this.isLoadingSubject.asObservable();
   }
 
-
   registerSucursal(data:any) {
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authservice.token});

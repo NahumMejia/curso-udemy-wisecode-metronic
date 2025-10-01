@@ -12,14 +12,13 @@ import { RolesService } from 'src/app/modules/roles/service/roles.service';
 
 
 
+
 @Component({
   selector: 'app-create-sucursal',
   templateUrl: './create-sucursal.component.html',
   styleUrls: ['./create-sucursal.component.scss']
 })
 export class CreateSucursalComponent {
-
-
 
     @Output() SucursalC: EventEmitter<any> = new EventEmitter();
     name: String = '';
@@ -103,6 +102,10 @@ export class CreateSucursalComponent {
             this.toast.success("Éxito","La sucursal  se registró correctamente");
             this.SucursalC.emit(resp.sucursal);
 
+
+            this.toast.success("Éxito","La sucursal  se registró correctamente");
+            this.SucursalC.emit(resp.sucursal);
+
             this.toast.success("Éxito","La sucursal  se registró correctamente");
             this.SucursalC.emit(resp.sucursal);
 
@@ -112,6 +115,7 @@ export class CreateSucursalComponent {
 
             this.toast.success("Éxito","El rol se registró correctamente");
             this.RoleC.emit(resp.role);
+
 
 
             this.modal.close(); 
@@ -125,4 +129,3 @@ export class CreateSucursalComponent {
 function Output(): (target: CreateSucursalComponent, propertyKey: "RoleC") => void {
   throw new Error('Function not implemented.');
 }
-
