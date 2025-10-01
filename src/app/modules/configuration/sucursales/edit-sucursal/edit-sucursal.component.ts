@@ -6,9 +6,7 @@ import { SucursalService } from '../service/sucursal.service';
 
 
 
-
 import { Component } from '@angular/core';
-
 
 
 @Component({
@@ -17,6 +15,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-sucursal.component.scss']
 })
 export class EditSucursalComponent {
+
 
 
   @Output() SucursalE: EventEmitter<any> = new EventEmitter();

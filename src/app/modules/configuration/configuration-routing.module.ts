@@ -38,6 +38,7 @@ const routes: Routes = [
 
 
 
+
   {
     path: 'metodo-de-pagos',
     loadChildren: () => import('./method-payment/method-payment.module').then((m) => m.MethodPaymentModule),
@@ -45,9 +46,11 @@ const routes: Routes = [
 
 
 
+
   ];
 
   /*
+
 
 
   {
@@ -59,6 +62,18 @@ const routes: Routes = [
     path: 'categoria-de-productos',
     loadChildren: () => import('./product-categories/product-categories.module').then((m) => m.ProductCategoriesModule),
   },
+   {
+    path: 'provedores',
+    loadChildren: () => import('./providers/providers.module').then((m) => m.ProvidersModule),
+  },
+  
+  {
+    path: 'unidades',
+    loadChildren: () => import('./units/units.module').then((m) => m.UnitsModule),
+  }, 
+];
+
+
   /* {
     path: 'provedores',
     loadChildren: () => import('./providers/providers.module').then((m) => m.ProvidersModule),
@@ -73,6 +88,7 @@ const routes: Routes = [
 ]; 
 
 ]; */
+
 
 
 

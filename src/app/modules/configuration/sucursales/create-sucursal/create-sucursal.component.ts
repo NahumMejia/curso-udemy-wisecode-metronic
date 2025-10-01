@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SucursalService } from '../service/sucursal.service';
 
 
+
 import { Component, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -97,12 +98,14 @@ export class CreateSucursalComponent {
 
 
 
+
           console.log(resp)
           if(resp.message == 403){
             this.toast.error('Validacion',resp.message_text);
           }else{
             this.toast.success("Éxito","La sucursal  se registró correctamente");
             this.SucursalC.emit(resp.sucursal);
+
 
             this.toast.success("Éxito","La sucursal  se registró correctamente");
             this.SucursalC.emit(resp.sucursal);

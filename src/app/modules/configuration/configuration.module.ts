@@ -10,6 +10,12 @@ import { MethodPaymentModule } from './method-payment/method-payment.module';
 
 import { ClientSegmentModule } from './client-segment/client-segment.module';
 import { ProductCategoriesModule } from './product-categories/product-categories.module';
+import { ProvidersModule } from './providers/providers.module';
+import { UnitsModule } from './units/units.module';
+
+
+import { ClientSegmentModule } from './client-segment/client-segment.module';
+import { ProductCategoriesModule } from './product-categories/product-categories.module';
 //import { ProvidersModule } from './providers/providers.module';
 
 
@@ -28,9 +34,11 @@ import { WarehousesModule } from './warehouses/warehouses.module';
 
 
 
+
 @NgModule({
   declarations: [
   ],
+
 
 
 
@@ -53,6 +61,9 @@ import { WarehousesModule } from './warehouses/warehouses.module';
     MethodPaymentModule,
     ClientSegmentModule,
     ProductCategoriesModule,
+    ProvidersModule,
+    UnitsModule
+
     //ProvidersModule
 
 

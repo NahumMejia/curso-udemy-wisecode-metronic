@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+
 import { SucursalService } from '../service/sucursal.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -24,6 +25,7 @@ import { DeleteSucursalComponent } from '../delete-sucursal/delete-sucursal.comp
 export class ListSucursalComponent {
 
   search:string = '';
+
 
   SUCURSALES:any = [];
   isLoading$:any;
