@@ -1,32 +1,26 @@
-
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { WarehouseService } from '../service/warehouse.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { SucursalService } from '../service/sucursal.service';
-
-import { Component } from '@angular/core';
-
 
 @Component({
-  selector: 'app-edit-sucursal',
-  templateUrl: './edit-sucursal.component.html',
-  styleUrls: ['./edit-sucursal.component.scss']
+  selector: 'app-create-wherehouse',
+  templateUrl: './create-wherehouse.component.html',
+  styleUrls: ['./create-wherehouse.component.scss']
 })
-export class EditSucursalComponent {
+export class CreateWherehouseComponent {
 
-
-  @Output() SucursalE: EventEmitter<any> = new EventEmitter();
-  @Input() SUCURSAL_SELECTED:any;
-  
+  @Output() WareHouseC: EventEmitter<any> = new EventEmitter();
+  @Input() SUCURSALES:any = [];
   name:string = '';
   address:string = '';
-  state:number = 1;
+  sucursale_id:string = '';
 
   isLoading:any;
 
   constructor(
     public modal: NgbActiveModal,
-    public sucursalService: SucursalService,
+    public wareHouseService: WarehouseService,
     public toast: ToastrService,
   ) {
     
@@ -35,9 +29,7 @@ export class EditSucursalComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.name = this.SUCURSAL_SELECTED.name;
-    this.address = this.SUCURSAL_SELECTED.address;
-    this.state = this.SUCURSAL_SELECTED.state;
+    
   }
 
   store(){
@@ -49,20 +41,19 @@ export class EditSucursalComponent {
     let data = {
       name: this.name,
       address:this.address,
-      state: this.state,
+      sucursale_id: this.sucursale_id,
     }
 
-    this.sucursalService.updateSucursal(this.SUCURSAL_SELECTED.id,data).subscribe((resp:any) => {
+    this.wareHouseService.registerWarehouse(data).subscribe((resp:any) => {
       console.log(resp);
       if(resp.message == 403){
         this.toast.error("Validación",resp.message_text);
       }else{
-        this.toast.success("Exito","La sucursal se edito correctamente");
-        this.SucursalE.emit(resp.sucursal);
+        this.toast.success("Exito","El almacen se registro correctamente");
+        this.WareHouseC.emit(resp.warehouse);
         this.modal.close();
       }
     })
   }
-  
 
 }

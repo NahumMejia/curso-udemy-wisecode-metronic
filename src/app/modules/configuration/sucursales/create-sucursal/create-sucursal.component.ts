@@ -4,11 +4,13 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { SucursalService } from '../service/sucursal.service';
 
+
 import { Component, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { SIDEBAR } from 'src/app/config/config';
 import { RolesService } from 'src/app/modules/roles/service/roles.service';
+
 
 
 @Component({
@@ -91,6 +93,7 @@ export class CreateSucursalComponent {
       }
       this.roleService.registerRole(data).subscribe((resp:any)=> {
 
+
           console.log(resp)
           if(resp.message == 403){
             this.toast.error('Validacion',resp.message_text);
@@ -99,8 +102,13 @@ export class CreateSucursalComponent {
             this.toast.success("Éxito","La sucursal  se registró correctamente");
             this.SucursalC.emit(resp.sucursal);
 
+
+            this.toast.success("Éxito","La sucursal  se registró correctamente");
+            this.SucursalC.emit(resp.sucursal);
+
             this.toast.success("Éxito","El rol se registró correctamente");
             this.RoleC.emit(resp.role);
+
 
             this.modal.close(); 
           }
@@ -108,6 +116,7 @@ export class CreateSucursalComponent {
   
     }
   }
+
 
 function Output(): (target: CreateSucursalComponent, propertyKey: "RoleC") => void {
   throw new Error('Function not implemented.');
