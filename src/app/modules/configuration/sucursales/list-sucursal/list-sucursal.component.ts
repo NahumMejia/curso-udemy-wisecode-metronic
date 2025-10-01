@@ -44,8 +44,13 @@ export class ListSucursalComponent {
   
     createSucursal(){
       const modalRef = this.modalService.open(CreateSucursalComponent, {centered:true, size:'md'});
+
+      modalRef.componentInstance.SucursalC.subscribe((sucursal:any)=>{
+        this.SUCURSALES.unshift(sucursal);
+
       modalRef.componentInstance.RoleC.subscribe((role:any)=>{
         this.SUCURSALES.unshift(role);
+
       })
     }
     editSucursal(ROL:any){
