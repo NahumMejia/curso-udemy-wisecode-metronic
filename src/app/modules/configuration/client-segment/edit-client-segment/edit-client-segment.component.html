@@ -1,10 +1,9 @@
-
 <!--begin::Modal content CREATE-->
 <div class="modal-content">
     <!--begin::Modal header-->
     <div class="modal-header" id="kt_modal_add_user_header">
         <!--begin::Modal title-->
-        <h2 class="fw-bolder">Edit Sucursal: {{ SUCURSAL_SELECTED.name }}</h2>
+        <h2 class="fw-bolder">Edit Client Segment: {{ CLIENT_SEGMENT_SELECTED.name }}</h2>
         
         <!--end::Modal title-->
         <!--begin::Close-->
@@ -39,14 +38,6 @@
 
                 <div class="fv-row mb-7">
                     <!--begin::Label-->
-                    <label class="required fw-bold fs-6 mb-2">Dirección:(Opcional) </label>
-                    <textarea class="form-control form-control-solid" rows="3" 
-                    name="address" [(ngModel)]="address"
-                     placeholder="Dirección  de la sucursal"></textarea>
-                </div>  
-
-                <div class="fv-row mb-7">
-                    <!--begin::Label-->
                     <label class="required fw-bold fs-6 mb-2">State:(Opcional) </label>
                     <select
                         class="form-control form-select-solid fw-bolder"
@@ -77,15 +68,5 @@
         <!--end::Form-->
     </div>
     <!--end::Modal body-->
-
 </div>
 <!--end::Modal content CREATE-->
-
-</div><!--end::Modal content CREATE-->
-
-
-<!--end::Modal content CREATE-->
-<!--end::Modal content CREATE-->
-<p>edit-sucursal works!</p>
-
-

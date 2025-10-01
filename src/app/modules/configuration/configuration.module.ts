@@ -8,6 +8,9 @@ import { WarehousesModule } from './warehouses/warehouses.module';
 import { SucursalDeliveriesModule } from './sucursal-deliveries/sucursal-deliveries.module';
 import { MethodPaymentModule } from './method-payment/method-payment.module';
 
+import { ClientSegmentModule } from './client-segment/client-segment.module';
+
+
 
 
 import { WarehousesModule } from './warehouses/warehouses.module';
@@ -18,6 +21,7 @@ import { WarehousesModule } from './warehouses/warehouses.module';
 //import { ClientSegmentModule } from './client-segment/client-segment.module';
 
 
+
 @NgModule({
   declarations: [
   ],
@@ -25,8 +29,10 @@ import { WarehousesModule } from './warehouses/warehouses.module';
 
 
 
+
 @NgModule({
   declarations: [],
+
 
 
   imports: [
@@ -36,6 +42,10 @@ import { WarehousesModule } from './warehouses/warehouses.module';
     SucursalesModule,
     WarehousesModule,
     SucursalDeliveriesModule,
+
+    MethodPaymentModule,
+    ClientSegmentModule
+
     MethodPaymentModule
     
 

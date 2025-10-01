@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { SucursalService } from '../service/sucursal.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+
 import { SucursalService } from '../service/sucursal.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SucursalService } from '../service/sucursal.service';
+
 
 import { CreateSucursalComponent } from '../create-sucursal/create-sucursal.component';
 import { EditSucursalComponent } from '../edit-sucursal/edit-sucursal.component';
@@ -20,6 +22,7 @@ import { DeleteSucursalComponent } from '../delete-sucursal/delete-sucursal.comp
 export class ListSucursalComponent {
 
   search:string = '';
+
 
   SUCURSALES:any = [];
   isLoading$:any;
@@ -89,6 +92,7 @@ export class ListSucursalComponent {
 }
 
 
+
     SUCURSALES: any = [];
     isLoading$:any;
     totalPages:number = 0;
@@ -150,4 +154,5 @@ export class ListSucursalComponent {
       })
     }
   }
+
 

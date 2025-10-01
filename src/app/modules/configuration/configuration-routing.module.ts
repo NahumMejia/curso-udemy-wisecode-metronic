@@ -20,6 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./sucursal-deliveries/sucursal-deliveries.module').then((m) => m.SucursalDeliveriesModule),
   },
 
+
 ];
   /*
 
@@ -44,6 +45,9 @@ const routes: Routes = [
     path: 'segmento-de-cliente',
     loadChildren: () => import('./client-segment/client-segment.module').then((m) => m.ClientSegmentModule),
   },
+
+]; 
+
 ]; */
 
 
