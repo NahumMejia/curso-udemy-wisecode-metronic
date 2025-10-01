@@ -1,7 +1,11 @@
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { SucursalService } from '../service/sucursal.service';
+
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-edit-sucursal',
@@ -9,6 +13,7 @@ import { SucursalService } from '../service/sucursal.service';
   styleUrls: ['./edit-sucursal.component.scss']
 })
 export class EditSucursalComponent {
+
 
   @Output() SucursalE: EventEmitter<any> = new EventEmitter();
   @Input() SUCURSAL_SELECTED:any;
@@ -59,4 +64,5 @@ export class EditSucursalComponent {
     })
   }
   
+
 }
