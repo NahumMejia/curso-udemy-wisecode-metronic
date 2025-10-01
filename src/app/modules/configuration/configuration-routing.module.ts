@@ -13,6 +13,12 @@ const routes: Routes = [
     loadChildren: () => import('./warehouses/warehouses.module').then((m) => m.WarehousesModule),
   },
 
+  {
+    path: 'lugar-de-entrega',
+    loadChildren: () => import('./sucursal-deliveries/sucursal-deliveries.module').then((m) => m.SucursalDeliveriesModule),
+  },
+
+
 
 
    {
@@ -31,24 +37,43 @@ const routes: Routes = [
   },
 
 
+
   {
     path: 'metodo-de-pagos',
     loadChildren: () => import('./method-payment/method-payment.module').then((m) => m.MethodPaymentModule),
   },
 
 
+
   ];
 
   /*
+
 
   {
     path: 'segmento-de-cliente',
     loadChildren: () => import('./client-segment/client-segment.module').then((m) => m.ClientSegmentModule),
   },
 
+  {
+    path: 'categoria-de-productos',
+    loadChildren: () => import('./product-categories/product-categories.module').then((m) => m.ProductCategoriesModule),
+  },
+  /* {
+    path: 'provedores',
+    loadChildren: () => import('./providers/providers.module').then((m) => m.ProvidersModule),
+  },
+  {
+    path: 'unidades',
+    loadChildren: () => import('./units/units.module').then((m) => m.UnitsModule),
+  }, */
+];
+
+
 ]; 
 
 ]; */
+
 
 
 @NgModule({

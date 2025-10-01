@@ -9,6 +9,11 @@ import { SucursalDeliveriesModule } from './sucursal-deliveries/sucursal-deliver
 import { MethodPaymentModule } from './method-payment/method-payment.module';
 
 import { ClientSegmentModule } from './client-segment/client-segment.module';
+import { ProductCategoriesModule } from './product-categories/product-categories.module';
+//import { ProvidersModule } from './providers/providers.module';
+
+
+import { ClientSegmentModule } from './client-segment/client-segment.module';
 
 
 
@@ -22,9 +27,11 @@ import { WarehousesModule } from './warehouses/warehouses.module';
 
 
 
+
 @NgModule({
   declarations: [
   ],
+
 
 
 
@@ -35,6 +42,7 @@ import { WarehousesModule } from './warehouses/warehouses.module';
 
 
 
+
   imports: [
     CommonModule,
     ConfigurationRoutingModule,
@@ -42,6 +50,11 @@ import { WarehousesModule } from './warehouses/warehouses.module';
     SucursalesModule,
     WarehousesModule,
     SucursalDeliveriesModule,
+    MethodPaymentModule,
+    ClientSegmentModule,
+    ProductCategoriesModule,
+    //ProvidersModule
+
 
     MethodPaymentModule,
     ClientSegmentModule
@@ -57,6 +70,7 @@ import { WarehousesModule } from './warehouses/warehouses.module';
     
 
     SucursalesModule
+
 
   ]
 })

@@ -56,7 +56,6 @@ export class CreateSucursalComponent {
       }
       this.sucursalService.registerSucursal(data).subscribe((resp:any)=> {
 
-
   @Output() RoleC: EventEmitter<any> = new EventEmitter();
     name: String = '';
     SIDEBAR: any = SIDEBAR;
@@ -121,7 +120,6 @@ export class CreateSucursalComponent {
 
             this.toast.success("Éxito","El rol se registró correctamente");
             this.RoleC.emit(resp.role);
-
 
 
             this.modal.close(); 
