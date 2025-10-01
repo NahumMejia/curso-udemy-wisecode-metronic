@@ -6,6 +6,11 @@ import { SucursalesModule } from './sucursales/sucursales.module';
 import { WarehousesModule } from './warehouses/warehouses.module';
 
 import { SucursalDeliveriesModule } from './sucursal-deliveries/sucursal-deliveries.module';
+
+
+import { WarehousesModule } from './warehouses/warehouses.module';
+
+//import { SucursalDeliveriesModule } from './sucursal-deliveries/sucursal-deliveries.module';
 //import { MethodPaymentModule } from './method-payment/method-payment.module';
 //import { ClientSegmentModule } from './client-segment/client-segment.module';
 
@@ -13,6 +18,13 @@ import { SucursalDeliveriesModule } from './sucursal-deliveries/sucursal-deliver
 @NgModule({
   declarations: [
   ],
+
+
+
+
+@NgModule({
+  declarations: [],
+
   imports: [
     CommonModule,
     ConfigurationRoutingModule,
@@ -21,6 +33,14 @@ import { SucursalDeliveriesModule } from './sucursal-deliveries/sucursal-deliver
     WarehousesModule,
     SucursalDeliveriesModule,
     
+
+
+    SucursalesModule,
+    WarehousesModule,
+    
+
+    SucursalesModule
+
   ]
 })
 export class ConfigurationModule { }
