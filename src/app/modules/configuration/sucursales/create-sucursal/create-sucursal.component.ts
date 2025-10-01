@@ -4,7 +4,6 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { SucursalService } from '../service/sucursal.service';
 
-
 import { Component, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -55,6 +54,7 @@ export class CreateSucursalComponent {
       }
       this.sucursalService.registerSucursal(data).subscribe((resp:any)=> {
 
+
   @Output() RoleC: EventEmitter<any> = new EventEmitter();
     name: String = '';
     SIDEBAR: any = SIDEBAR;
@@ -94,10 +94,14 @@ export class CreateSucursalComponent {
       this.roleService.registerRole(data).subscribe((resp:any)=> {
 
 
+
           console.log(resp)
           if(resp.message == 403){
             this.toast.error('Validacion',resp.message_text);
           }else{
+
+            this.toast.success("Éxito","La sucursal  se registró correctamente");
+            this.SucursalC.emit(resp.sucursal);
 
             this.toast.success("Éxito","La sucursal  se registró correctamente");
             this.SucursalC.emit(resp.sucursal);
@@ -121,5 +125,4 @@ export class CreateSucursalComponent {
 function Output(): (target: CreateSucursalComponent, propertyKey: "RoleC") => void {
   throw new Error('Function not implemented.');
 }
-
 

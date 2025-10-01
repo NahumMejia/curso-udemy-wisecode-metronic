@@ -1,21 +1,14 @@
-
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { SucursalService } from '../service/sucursal.service';
-
-
-import { Component } from '@angular/core';
-
-
+import { SucursalDeliverieService } from '../service/sucursal-deliverie.service';
 
 @Component({
-  selector: 'app-edit-sucursal',
-  templateUrl: './edit-sucursal.component.html',
-  styleUrls: ['./edit-sucursal.component.scss']
+  selector: 'app-edit-sucursal-deliverie',
+  templateUrl: './edit-sucursal-deliverie.component.html',
+  styleUrls: ['./edit-sucursal-deliverie.component.scss']
 })
-export class EditSucursalComponent {
-
+export class EditSucursalDeliverieComponent {
 
   @Output() SucursalE: EventEmitter<any> = new EventEmitter();
   @Input() SUCURSAL_SELECTED:any;
@@ -28,7 +21,7 @@ export class EditSucursalComponent {
 
   constructor(
     public modal: NgbActiveModal,
-    public sucursalService: SucursalService,
+    public sucursalDeliverieService: SucursalDeliverieService,
     public toast: ToastrService,
   ) {
     
@@ -44,7 +37,7 @@ export class EditSucursalComponent {
 
   store(){
     if(!this.name){
-      this.toast.error("Validación","El nombre de la sucursal es requerido");
+      this.toast.error("Validación","El nombre del lugar de entrega es requerido");
       return false;
     }
 
@@ -54,12 +47,12 @@ export class EditSucursalComponent {
       state: this.state,
     }
 
-    this.sucursalService.updateSucursal(this.SUCURSAL_SELECTED.id,data).subscribe((resp:any) => {
+    this.sucursalDeliverieService.updateSucursalDeliverie(this.SUCURSAL_SELECTED.id,data).subscribe((resp:any) => {
       console.log(resp);
       if(resp.message == 403){
         this.toast.error("Validación",resp.message_text);
       }else{
-        this.toast.success("Exito","La sucursal se edito correctamente");
+        this.toast.success("Exito","El lugar de entrega se edito correctamente");
         this.SucursalE.emit(resp.sucursal);
         this.modal.close();
       }

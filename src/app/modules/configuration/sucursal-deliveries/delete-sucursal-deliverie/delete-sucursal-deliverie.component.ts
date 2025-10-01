@@ -1,19 +1,14 @@
-
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SucursalService } from '../service/sucursal.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-
-
-import { Component } from '@angular/core';
-
+import { SucursalDeliverieService } from '../service/sucursal-deliverie.service';
 
 @Component({
-  selector: 'app-delete-sucursal',
-  templateUrl: './delete-sucursal.component.html',
-  styleUrls: ['./delete-sucursal.component.scss']
+  selector: 'app-delete-sucursal-deliverie',
+  templateUrl: './delete-sucursal-deliverie.component.html',
+  styleUrls: ['./delete-sucursal-deliverie.component.scss']
 })
-export class DeleteSucursalComponent {
+export class DeleteSucursalDeliverieComponent {
 
   @Output() SucursalD: EventEmitter<any> = new EventEmitter();
   @Input()  SUCURSAL_SELECTED:any;
@@ -21,7 +16,7 @@ export class DeleteSucursalComponent {
   isLoading:any;
   constructor(
     public modal: NgbActiveModal,
-    public sucursalesService: SucursalService,
+    public sucursalesDeliverieService: SucursalDeliverieService,
     public toast: ToastrService,
   ) {
     
@@ -32,15 +27,16 @@ export class DeleteSucursalComponent {
 
   delete(){
     
-    this.sucursalesService.deleteSucursal(this.SUCURSAL_SELECTED.id).subscribe((resp:any) => {
+    this.sucursalesDeliverieService.deleteSucursalDeliverie(this.SUCURSAL_SELECTED.id).subscribe((resp:any) => {
       console.log(resp);
       if(resp.message == 403){
         this.toast.error("Validación",resp.message_text);
       }else{
-        this.toast.success("Exito","La sucursal se elimino correctamente");
+        this.toast.success("Exito","El lugar de entrega se elimino correctamente");
         this.SucursalD.emit(resp.message);
         this.modal.close();
       }
     })
   }
+
 }
