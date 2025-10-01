@@ -7,7 +7,7 @@ import { WarehousesModule } from './warehouses/warehouses.module';
 
 import { SucursalDeliveriesModule } from './sucursal-deliveries/sucursal-deliveries.module';
 import { MethodPaymentModule } from './method-payment/method-payment.module';
-//import { ClientSegmentModule } from './client-segment/client-segment.module';
+import { ClientSegmentModule } from './client-segment/client-segment.module';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { MethodPaymentModule } from './method-payment/method-payment.module';
     SucursalesModule,
     WarehousesModule,
     SucursalDeliveriesModule,
-    MethodPaymentModule
+    MethodPaymentModule,
+    ClientSegmentModule
     
   ]
 })

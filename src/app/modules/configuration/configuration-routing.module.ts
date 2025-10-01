@@ -23,14 +23,13 @@ const routes: Routes = [
     loadChildren: () => import('./method-payment/method-payment.module').then((m) => m.MethodPaymentModule),
   },
 
-  ];
 
-  /*
+  
   {
     path: 'segmento-de-cliente',
     loadChildren: () => import('./client-segment/client-segment.module').then((m) => m.ClientSegmentModule),
   },
-]; */
+]; 
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
